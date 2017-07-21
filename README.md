@@ -29,6 +29,8 @@ cd /var/www/
 sudo rm -r html/
 sudo git clone https://github.com/andreknieriem/photobooth
 sudo mv photobooth html
+sudo chown -R pi: /var/www/
+sudo chmod -R 777 /var/www/
 ```
 Give sudo rights to the webserver user (www-data)
 
@@ -36,10 +38,6 @@ Give sudo rights to the webserver user (www-data)
 and add the following line to the file:
 ```www-data ALL=(ALL) NOPASSWD: ALL```
 
-```
-sudo chown -R pi: /var/www/
-sudo chmod -R 777 /var/www/
-```
 
 Open the IP address of your raspberry pi in a browser
 
