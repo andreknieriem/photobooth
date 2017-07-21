@@ -36,6 +36,11 @@ Give sudo rights to the webserver user (www-data)
 and add the following line to the file:
 ```www-data ALL=(ALL) NOPASSWD: ALL```
 
+```
+sudo chown -R pi: /var/www/
+sudo chmod -R 777 /var/www/
+```
+
 Open the IP address of your raspberry pi in a browser
 
 - Change the styling to your needs
@@ -59,3 +64,4 @@ If you want to change the labels just change the de.js or en.js
 ### Thanks to
 - [dimsemenov](https://github.com/dimsemenov/photoswipe) for photoswipe
 - [t0k4rt](https://github.com/t0k4rt/phpqrcode) for phpqrcode
+- [andrerinas](https://github.com/andreknieriem/) for the original photobooth
