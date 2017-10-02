@@ -29,12 +29,15 @@ cd /var/www/
 sudo rm -r html/
 sudo git clone https://github.com/andreknieriem/photobooth
 sudo mv photobooth html
+sudo chown -R pi: /var/www/
+sudo chmod -R 777 /var/www/
 ```
 Give sudo rights to the webserver user (www-data)
 
 ```sudo nano /etc/sudoers```
 and add the following line to the file:
 ```www-data ALL=(ALL) NOPASSWD: ALL```
+
 
 Open the IP address of your raspberry pi in a browser
 
@@ -60,3 +63,4 @@ If you want to change the labels just change the de.js or en.js
 ### Thanks to
 - [dimsemenov](https://github.com/dimsemenov/photoswipe) for photoswipe
 - [t0k4rt](https://github.com/t0k4rt/phpqrcode) for phpqrcode
+- [andrerinas](https://github.com/andreknieriem/) for the original photobooth
