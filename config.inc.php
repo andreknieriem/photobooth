@@ -6,6 +6,9 @@ $config['dev'] = false;
 $config['use_print'] = true;
 $config['use_qr'] = true;
 
+$config['show_fork'] = true;
+
+
 // FOLDERS
 // change the folders to whatever you like
 $config['folders']['images'] = 'images';
