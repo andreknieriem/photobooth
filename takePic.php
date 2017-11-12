@@ -3,8 +3,15 @@
 require_once('db.php');
 require_once('config.inc.php');
 
-//$file = md5(time()).'.jpg';
-$file = date('Ymd_His').'.jpg';
+switch($config['file_format']){
+case date:
+	$file = date('Ymd_His').'.jpg';
+break
+default:
+	$file = md5(time()).'.jpg';
+break;
+
+}
 $filename_photo = $config['folders']['images'] . DIRECTORY_SEPARATOR . $file;
 $filename_thumb = $config['folders']['thumbs'] . DIRECTORY_SEPARATOR . $file;
 

@@ -7,6 +7,7 @@ $config['use_print'] = true;
 $config['use_qr'] = true;
 
 $config['show_fork'] = true;
+#$config['file_format'] = date; 
 
 
 // FOLDERS
