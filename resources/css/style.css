@@ -179,7 +179,7 @@ h3 {
 
 #start, #admin, #install {
   width: 100%;
-  background: url(../img/bg.jpg) center center no-repeat;
+  background: url(http://127.0.0.1:8081) center center no-repeat;
   background-size: cover; }
 
 .names {
