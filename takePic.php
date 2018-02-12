@@ -4,25 +4,35 @@ require_once('db.php');
 require_once('config.inc.php');
 
 $file = md5(time()).'.jpg';
+
+switch($config['file_format']){
+	case 'date':
+		$file = date('Ymd_His').'.jpg';
+		break;
+	default:
+		$file = md5(time()).'.jpg';
+		break;
+ }
+
 $filename_photo = $config['folders']['images'] . DIRECTORY_SEPARATOR . $file;
 $filename_thumb = $config['folders']['thumbs'] . DIRECTORY_SEPARATOR . $file;
 
 if($config['dev'] === false) {
-    $shootimage = shell_exec(
-        sprintf(
-            $config['take_picture']['cmd'],
-            $filename_photo
-        )
-    );
-    if(strpos($shootimage, $config['take_picture']['msg']) === false) {
-        die(json_encode(array('error' => true)));
-    }
+	$shootimage = shell_exec(
+		sprintf(
+			$config['take_picture']['cmd'],
+			$filename_photo
+			)
+		);
+		if(strpos($shootimage, $config['take_picture']['msg']) === false) {
+			die(json_encode(array('error' => true)));
+		}
 } else {
-    $devImg = array('dev.jpg', 'dev2.jpg', 'dev3.jpg', 'dev4.jpg', 'dev5.jpg', 'dev6.jpg');
-    copy(
-        $devImg[array_rand($devImg)],
-        $filename_photo
-    );
+	$devImg = array('resources/img/bg.jpg');
+	copy(
+		$devImg[array_rand($devImg)],
+		$filename_photo
+	);
 }
 
 // image scale

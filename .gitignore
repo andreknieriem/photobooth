@@ -1,6 +1,6 @@
-node_modules
 digicamcontrol
-resources/gulpfile.js
+bower_components
+node_modules
 stats
 thumbs
 images
@@ -8,9 +8,3 @@ print
 qrcodes
 trash
 data.txt
-dev.jpg
-dev2.jpg
-dev3.jpg
-dev4.jpg
-dev5.jpg
-dev6.jpg

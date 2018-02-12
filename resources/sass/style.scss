@@ -252,25 +252,14 @@ h3 {
 .resultInner {
   position: absolute;
   bottom: 50px;
-  width: 610px;
+  width: 100%;
   height: 70px;
-  left: 50%;
-  margin-left: -300px;
-
-  .btn {
-    display: block;
-    position: absolute;
-
-    &.gallery {
-      left: 0;
-      top: 0;
-    }
-  }
-}
-
-.resultInner .btn.newpic {
-  right: 0;
-  top: 0;
+  left: 0;
+	right: 0;
+	text-align: center;
+	.btn {
+		display: inline-block;
+	}
 }
 
 .spinner {
@@ -345,12 +334,18 @@ h3 {
   font-size: 25px;
 }
 
+.qr {
+	> * {
+		display: none;
+	}
+	&.active > *{
+		display: block;
+	}
+}
+
 .qrbtn {
-  background: #fff;
-  color: #000;
-  position: absolute;
-  left: 205px;
-  top: 0;
+	background: #fff;
+	color: #000;
 }
 
 .qrbtn:hover {
@@ -647,7 +642,7 @@ hr.small {
   }
 }
 
-.gal-qr-code {
+.gal-qr-code,.gal-print {
   color: #fff;
   background: transparent;
   font-size: 26px;
@@ -663,4 +658,10 @@ hr.small {
   margin: 0;
   float: right;
   opacity: 0.75;
+}
+
+@media (max-width: 767px){
+	.takePic {
+		bottom: auto;
+	}
 }
