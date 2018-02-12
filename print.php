@@ -33,16 +33,17 @@ if(file_exists($filename_source)) {
 
         // merge source and code
         list($width, $height) = getimagesize($filename_source);
-        $newwidth = $width + ($height / 2);
-        $newheight = $height;
+        $aspectratio = $width / $height;
+        $newheight = 1024 / $aspectratio;
+        $newwidth = 1024 + ($newheight / 2); // the qrcode will be half the size of the source image height
 
         $source = imagecreatefromjpeg($filename_source);
         $code = imagecreatefrompng($filename_codes);
         $print = imagecreatetruecolor($newwidth, $newheight);
 
         imagefill($print, 0, 0, imagecolorallocate($print, 255, 255, 255));
-        imagecopy($print, $source , 0, 0, 0, 0, $width, $height);
-        imagecopyresized($print, $code, $width, 0, 0, 0, ($height / 2), ($height / 2), imagesx($code), imagesy($code));
+        imagecopyresized($print, $source, 0, 0, 0, 0, 1024, $newheight, $width, $height);
+        imagecopyresized($print, $code, 1024, 0, 0, 0, ($newheight / 2), ($newheight / 2), imagesx($code), imagesy($code));
 
         imagejpeg($print, $filename_print);
         imagedestroy($print);        
