@@ -125,6 +125,7 @@ var photoBooth = (function () {
         // Add Print Link
         $(document).off('click touchstart', '.printbtn');
         $(document).on('click touchstart', '.printbtn', function (e) {
+            console.log(e.target.className);
             e.preventDefault();
             $.ajax({
                 url: 'print.php?filename=' + encodeURI(result.img),
@@ -278,7 +279,17 @@ var photoBooth = (function () {
         var target = $(e.target);
 
         // Menü in and out
-        if (!target.hasClass('qrbtn') && target.closest('.qrbtn').length == 0 && !target.hasClass('newpic') && !target.hasClass('printbtn') && target.closest('.printbtn').length == 0 && !target.hasClass('resetBtn') && !target.hasClass('gallery') && qr != true && !target.hasClass('homebtn')) {
+        if (!target.hasClass('qrbtn')
+            && target.closest('.qrbtn').length == 0
+            && !target.hasClass('printbtn')
+            && target.closest('.printbtn').length == 0
+            && !target.hasClass('homebtn')
+            && target.closest('.homebtn').length == 0
+            && !target.hasClass('newpic')
+            && !target.hasClass('resetBtn')
+            && !target.hasClass('gallery')
+            && qr != true
+        ) {
             if ($('.resultInner').hasClass('hidden')) {
                 $('.resultInner').stop().animate({
                     'bottom': '50px'
@@ -291,64 +302,62 @@ var photoBooth = (function () {
         }
 
         if (qr && !target.hasClass('qrbtn')) {
-					var qrpos = $('.qrbtn').offset(),
-						qrbtnwidth = $('.qrbtn').outerWidth(),
-						qrbtnheight = $('.qrbtn').outerHeight()
-						$('.qr').removeClass('active');
+            var qrpos = $('.qrbtn').offset(),
+			qrbtnwidth = $('.qrbtn').outerWidth(),
+			qrbtnheight = $('.qrbtn').outerHeight()
+			$('.qr').removeClass('active');
             $('.qr').animate({
-							'width': qrbtnwidth,
-							'height': qrbtnheight,
-							'left': qrpos.left,
-							'top': qrpos.top,
-							'margin-left': 0,
+				'width': qrbtnwidth,
+				'height': qrbtnheight,
+				'left': qrpos.left,
+				'top': qrpos.top,
+				'margin-left': 0,
             }, 250, function(){
-							$('.qr').hide();
-						});
-						qr = false;
+				$('.qr').hide();
+			});
+			qr = false;
         }
 
         // Go to Home
-        if (target.hasClass('homebtn')) {
+        if (target.hasClass('homebtn') || target.closest('.homebtn').length > 0) {
             window.location = window.location.origin;
         }
 
         // Qr in and out
         if (target.hasClass('qrbtn') || target.closest('.qrbtn').length > 0) {
-
-						var qrpos = $('.qrbtn').offset(),
-							qrbtnwidth = $('.qrbtn').outerWidth(),
-							qrbtnheight = $('.qrbtn').outerHeight()
-
+            var qrpos = $('.qrbtn').offset(),
+                qrbtnwidth = $('.qrbtn').outerWidth(),
+                qrbtnheight = $('.qrbtn').outerHeight()
             if (qr) {
-								$('.qr').removeClass('active');
+                $('.qr').removeClass('active');
                 $('.qr').animate({
                     'width': qrbtnwidth,
                     'height': qrbtnheight,
                     'left': qrpos.left,
-										'top': qrpos.top,
-										'margin-left': 0,
-                }, 250, function(){
-									$('.qr').hide();
-								});
+                    'top': qrpos.top,
+                    'margin-left': 0,
+                }, 250, function () {
+                    $('.qr').hide();
+                });
                 qr = false;
             } else {
                 qr = true;
-								$('.qr').css({
-									'width': qrbtnwidth,
-									'height': qrbtnheight,
-									'left': qrpos.left,
-									'top': qrpos.top
-								});
-								$('.qr').show();
+                $('.qr').css({
+                    'width': qrbtnwidth,
+                    'height': qrbtnheight,
+                    'left': qrpos.left,
+                    'top': qrpos.top
+                });
+                $('.qr').show();
                 $('.qr').animate({
                     'width': 500,
                     'height': 600,
                     'left': '50%',
                     'margin-left': -265,
                     'top': 50
-                }, 250, function(){
-									$('.qr').addClass('active');
-								});
+                }, 250, function () {
+                    $('.qr').addClass('active');
+                });
             }
         }
     });
