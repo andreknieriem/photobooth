@@ -278,6 +278,10 @@ h3 {
   width: 200px;
   text-align: center;
   font-size: 20px;
+  &.gallery {
+    z-index: 5;
+    position: absolute;
+  }
 }
 
 .btn:active,
@@ -437,18 +441,20 @@ hr.small {
 }
 
 .inner {
-  background: rgba(0,0,0,0.5);
-  width: 450px;
+  background: rgba(0, 0, 0, 0.5);
+  max-width: 450px;
+  min-width: 320px;
   height: 700px;
   position: absolute;
   top: 50%;
-  margin-top: -350px;
+  /*margin-top: -350px;*/
   color: #fff;
   text-align: center;
   padding: 20px 50px;
   text-transform: uppercase;
   left: 50%;
-  margin-left: -225px;
+  /*margin-left: -225px; */
+  transform: translate(-50%, -50%);
 }
 
 #gallery {
@@ -664,4 +670,16 @@ hr.small {
 	.takePic {
 		bottom: auto;
 	}
+}
+
+@media (max-height: 700px) {
+    .inner {
+        height: 100%;
+    }
+    .inner .names {
+        /* padding: 0; */
+        margin: 0;
+    }
+    .takePic {
+    bottom: 10%; }
 }
