@@ -173,6 +173,10 @@ h3 {
     background-color: #81d939 !important; }
     .btn.save-btn.success span.su, .btn.install-btn.success span.su {
       display: inline; }
+  .btn.gallery {
+    z-index: 5;
+    position: absolute;
+  }
 
 .adminpanel h2 {
   text-align: center; }
@@ -354,17 +358,20 @@ hr.small {
 
 .inner {
   background: rgba(0, 0, 0, 0.5);
-  width: 450px;
+  max-width: 450px;
+  min-width: 320px;
   height: 700px;
   position: absolute;
   top: 50%;
-  margin-top: -350px;
+  /*margin-top: -350px;*/
   color: #fff;
   text-align: center;
   padding: 20px 50px;
   text-transform: uppercase;
   left: 50%;
-  margin-left: -225px; }
+  /*margin-left: -225px; */
+  transform: translate(-50%, -50%);
+}
 
 #gallery {
   position: fixed;
@@ -552,3 +559,15 @@ hr.small {
 @media (max-width: 767px) {
   .takePic {
     bottom: auto; } }
+
+@media (max-height: 700px) {
+    .inner {
+        height: 100%;
+    }
+    .inner .names {
+        /* padding: 0; */
+        margin: 0;
+    }
+    .takePic {
+    bottom: 10%; }
+}

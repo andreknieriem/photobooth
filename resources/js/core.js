@@ -160,13 +160,34 @@ var photoBooth = (function () {
     }
 
     // add image to Gallery
-    public.addImage = function (image) {
-        // fixme: set to appendTo, if new images should appear at the end, or to prependTo, if new images should appear at the beginning
-        var $node = $('<a>').html('<img src="/thumbs/' + image + '" />').data('size', '1920x1280').attr('href', '/images/' + image + '?new=1')
-        if (gallery_newest_first) {
-            $node.prependTo($('#galimages'));
-        } else {
-            $node.appendTo($('#galimages'));
+    public.addImage = function (imageName) {
+        var thumbImg = new Image();
+        var bigImg = new Image();
+        var thumbSize = '';
+        var bigSize = '';
+
+        var imgtoLoad = 2;
+
+        thumbImg.onload = function() {
+            thumbSize = this.width + 'x' + this.height;
+            if (--imgtoLoad == 0) {allLoaded();}
+        }
+
+        bigImg.onload = function() {
+            bigSize = this.width + 'x' + this.height;
+            if (--imgtoLoad == 0) {allLoaded();}
+        }
+
+        bigImg.src = '/images/' + imageName;
+        thumbImg.src = '/thumbs/' + imageName;
+
+        function allLoaded() {
+            var $node = $('<a>').html(thumbImg).data('size', bigSize).attr('href', '/images/' + imageName + '?new=1').attr('data-med', '/thumbs/' + imageName).attr('data-med-size', thumbSize);
+            if (gallery_newest_first) {
+                $node.prependTo($('#galimages'));
+            } else {
+                $node.appendTo($('#galimages'));
+            }
         }
     }
 
@@ -578,7 +599,7 @@ var photoBooth = (function () {
                     captionEl.children[0].innerText = '';
                     return false;
                 }
-                captionEl.children[0].innerHTML = item.title + '<br/><small>Photo: ' + item.author + '</small>';
+                captionEl.children[0].innerHTML = item.title;
                 return true;
             }
 
