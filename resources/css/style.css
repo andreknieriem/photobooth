@@ -3,36 +3,43 @@
   font-style: normal;
   font-weight: 200;
   src: local("Dosis ExtraLight"), local("Dosis-ExtraLight"), url(../fonts/dosis/ExtraLight.woff) format("woff"); }
+
 @font-face {
   font-family: 'Dosis';
   font-style: normal;
   font-weight: 300;
   src: local("Dosis Light"), local("Dosis-Light"), url(../fonts/dosis/Light.woff) format("woff"); }
+
 @font-face {
   font-family: 'Dosis';
   font-style: normal;
   font-weight: 400;
   src: local("Dosis Regular"), local("Dosis-Regular"), url(../fonts/dosis/Regular.woff) format("woff"); }
+
 @font-face {
   font-family: 'Dosis';
   font-style: normal;
   font-weight: 500;
   src: local("Dosis Medium"), local("Dosis-Medium"), url(../fonts/dosis/Medium.woff) format("woff"); }
+
 @font-face {
   font-family: 'Dosis';
   font-style: normal;
   font-weight: 600;
   src: local("Dosis SemiBold"), local("Dosis-SemiBold"), url(../fonts/dosis/SemiBold.woff) format("woff"); }
+
 @font-face {
   font-family: 'Dosis';
   font-style: normal;
   font-weight: 700;
   src: local("Dosis Bold"), local("Dosis-Bold"), url(../fonts/dosis/Bold.woff) format("woff"); }
+
 @font-face {
   font-family: 'Dosis';
   font-style: normal;
   font-weight: 800;
   src: local("Dosis ExtraBold"), local("Dosis-ExtraBold"), url(../fonts/dosis/ExtraBold.woff) format("woff"); }
+
 * {
   -ms-content-zooming: none; }
 
@@ -82,7 +89,8 @@ h3 {
 
 #wrapper {
   position: relative;
-  overflow: hidden; }
+  overflow: hidden;
+  background-color: black;  }
 
 .adminpanel {
   width: 400px;
@@ -125,6 +133,7 @@ h3 {
       border: 1px solid #bbb; }
     .tabbox ul li.active, .tabbox ul li:hover {
       background: #f1f1f1; }
+
 .tabbox .tab {
   display: none; }
   .tabbox .tab.active {
@@ -149,7 +158,11 @@ h3 {
     display: none; }
     .btn.save-btn span.sv, .btn.install-btn span.sv {
       display: inline; }
-  .btn.save-btn.error span.sv, .btn.save-btn.success span.sv, .btn.save-btn.saving span.sv, .btn.install-btn.error span.sv, .btn.install-btn.success span.sv, .btn.install-btn.saving span.sv {
+  .btn.save-btn.error span.sv,
+  .btn.save-btn.success span.sv,
+  .btn.save-btn.saving span.sv, .btn.install-btn.error span.sv,
+  .btn.install-btn.success span.sv,
+  .btn.install-btn.saving span.sv {
     display: none; }
   .btn.save-btn.saving i, .btn.install-btn.saving i {
     display: inline-block; }
@@ -161,6 +174,10 @@ h3 {
     background-color: #81d939 !important; }
     .btn.save-btn.success span.su, .btn.install-btn.success span.su {
       display: inline; }
+  #start .btn.gallery {
+    z-index: 5;
+    position: absolute;
+  }
 
 .adminpanel h2 {
   text-align: center; }
@@ -177,7 +194,7 @@ h3 {
 #result {
   width: 100%;
   background: center center no-repeat;
-  background-size: cover;
+  background-size: contain;
   z-index: 2; }
 
 .resultInner {
@@ -206,9 +223,6 @@ h3 {
   width: 200px;
   text-align: center;
   font-size: 20px; }
-  .btn.gallery {
-    z-index: 5;
-    position: absolute; }
 
 .btn:active,
 .btn:focus,
@@ -260,6 +274,7 @@ h3 {
 
 .qr > * {
   display: none; }
+
 .qr.active > * {
   display: block; }
 
@@ -356,7 +371,8 @@ hr.small {
   text-transform: uppercase;
   left: 50%;
   /*margin-left: -225px; */
-  transform: translate(-50%, -50%); }
+  transform: translate(-50%, -50%);
+}
 
 #gallery {
   position: fixed;
@@ -496,7 +512,7 @@ hr.small {
 
 /* Photoswipe Overrides */
 .pswp__caption {
-  display: none; }
+ }
 
 .pswp__button--close {
   width: 50px;
@@ -514,12 +530,13 @@ hr.small {
 
 .pswp__qr {
   width: 500px;
-  height: 500px;
+  flex-direction: column;
+  height: 600px;
   position: absolute;
   left: 50%;
   margin-left: -250px;
   top: 50%;
-  margin-top: -250px;
+  margin-top: -300px;
   z-index: 10000; }
   .pswp__qr img {
     width: 100%; }
@@ -544,13 +561,34 @@ hr.small {
 @media (max-width: 767px) {
   .takePic {
     bottom: auto; } }
+
 @media (max-height: 700px) {
-  .inner {
-    height: 100%; }
+    .inner {
+        height: 100%;
+    }
+    .inner .names {
+        /* padding: 0; */
+        margin: 0;
+    }
+    .takePic {
+    bottom: 10%; }
 
-  .inner .names {
-    /* padding: 0; */
-    margin: 0; }
+    .qr img {
+      max-width: 70%;
+      max-height: 100%;
+      float: left;
+    }
 
-  .takePic {
-    bottom: 10%; } }
+    .qr {
+      max-height: 80%;
+      top: 50% !important;
+      margin-top: 0;
+      transform: translate(0, -50%);
+      display: flex;
+      align-items: center;
+    }
+
+    .pswp__qr {
+      flex-direction: row;
+    }
+}

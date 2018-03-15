@@ -279,8 +279,9 @@ var photoBooth = (function () {
             var img = pswp.currItem.src;
             img = img.replace('/images/', '');
             $('<img>').attr('src', 'qrcode.php?filename=' + img).appendTo(pswpQR);
-
-            pswpQR.addClass('qr-active').fadeIn('fast');
+            $('<p>').html(L10N.qrHelp).appendTo(pswpQR);
+            
+            pswpQR.addClass('qr active qr-active').fadeIn('fast');
         }
     });
     // print in gallery
