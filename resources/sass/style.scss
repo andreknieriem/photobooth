@@ -103,6 +103,7 @@ h3 {
 #wrapper {
   position: relative;
   overflow: hidden;
+  background-color: black;
 }
 
 .adminpanel {
@@ -245,7 +246,7 @@ h3 {
 #result {
   width: 100%;
   background: center center no-repeat;
-  background-size: cover;
+  background-size: contain;
   z-index: 2;
 }
 
@@ -625,6 +626,7 @@ hr.small {
   line-height: 50px;
   text-align: center;
   margin-right: 30px;
+  background-image: none !important;
 }
 
 .pswp__button--close:before {
@@ -632,16 +634,18 @@ hr.small {
   color: #fff;
   font-size: 30px;
   font: normal normal normal 30px/1 FontAwesome;
+  line-height: 0.5;
 }
 
 .pswp__qr {
+  flex-direction: column;
   width: 500px;
-  height: 500px;
+  height: 600px;
   position: absolute;
   left: 50%;
   margin-left: -250px;
   top: 50%;
-  margin-top: -250px;
+  margin-top: -300px;
   z-index: 10000;
   img {
     width: 100%;
@@ -682,4 +686,23 @@ hr.small {
     }
     .takePic {
     bottom: 10%; }
+    
+    .qr img {
+      max-width: 70%;
+      max-height: 100%;
+      float: left;
+    }
+
+    .qr {
+      max-height: 80%;
+      top: 50% !important;
+      margin-top: 0;
+      transform: translate(0, -50%);
+      display: flex;
+      align-items: center;
+    }
+
+    .pswp__qr {
+      flex-direction: row;
+    }
 }
