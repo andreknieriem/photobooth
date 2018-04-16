@@ -20,7 +20,7 @@ $config['folders']['print'] = 'print';
 $config['gallery']['newest_first'] = true;
 
 // LANGUAGE
-// possible values: en, de
+// possible values: en, de, fr
 $config['language'] = 'de';
 
 // COMMANDS and MESSAGES
