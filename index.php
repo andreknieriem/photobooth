@@ -7,7 +7,7 @@ require_once('db.php');
 <html>
 <head>
 	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no">
 	<title>Photobooth</title>
 	<link rel="stylesheet" href="/resources/css/normalize.css" />
 	<link rel="stylesheet" href="/resources/css/font-awesome.min.css" />
