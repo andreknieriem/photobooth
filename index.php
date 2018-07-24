@@ -35,6 +35,7 @@ require_once('db.php');
 
 		<!-- Loader -->
 		<div class="stages" id="loader">
+            <video id="video" autoplay></video>
 			<div class="loaderInner">
 			<div class="spinner">
 				<i class="fa fa-cog fa-spin"></i>

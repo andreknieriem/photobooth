@@ -6,6 +6,7 @@ $config['dev'] = true;
 $config['use_print'] = true;
 $config['use_qr'] = true;
 $config['show_fork'] = true;
+$config['file_format'] = null;
 #$config['file_format'] = 'date'; // comment in to get dateformat images
 
 // FOLDERS

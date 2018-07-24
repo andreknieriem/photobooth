@@ -13,7 +13,15 @@ var photoBooth = (function () {
         gallery = $('#gallery'),
         processing = false,
         pswp = {},
-        resultPage = $('#result');
+        resultPage = $('#result'),
+        webcamConstraints = {
+            audio: false,
+            video: {
+                width: 720,
+                height: 480,
+                facingMode: "user",
+            }
+        };
 
     // timeOut function
     public.resetTimeOut = function () {
@@ -206,6 +214,16 @@ var photoBooth = (function () {
         } else {
             if (!processing) {
                 public.reset();
+
+                navigator.mediaDevices.getUserMedia(webcamConstraints)
+                    .then(function(stream) {
+                        var video = document.getElementById('video');
+                        video.srcObject = stream;
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    });
+
                 loader.slideDown('slow', 'easeOutBounce', function () {
                     public.countdown(countDown, $('#counter'));
                 });

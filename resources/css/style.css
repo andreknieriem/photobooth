@@ -241,11 +241,17 @@ h3 {
 .loaderInner {
   position: absolute;
   left: 50%;
-  margin-left: -250px;
-  height: 200px;
   width: 500px;
   top: 50%;
-  margin-top: -100px; }
+  transform: translate(-50%, -50%);
+  background: rgba(255, 255, 255, 0.5);
+  padding: 15px; }
+
+#video {
+  position: absolute;
+  top: 50%;
+  margin-top: -240px;
+  margin-left: -360px; }
 
 .homebtn {
   position: absolute;
