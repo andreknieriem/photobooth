@@ -33,9 +33,9 @@ switch($config['os']) {
 	break;
 	case 'linux':
 	default:
-	$config['take_picture']['cmd'] = 'sudo gphoto2 --capture-image-and-download --filename=%s images';
+	$config['take_picture']['cmd'] = 'sudo gphoto2 --capture-image-and-download --filename=%s';
 	$config['take_picture']['msg'] = 'New file is in location';
-	$config['print']['cmd'] = 'sudo lp -o landscape fit-to-page %s';
+	$config['print']['cmd'] = 'sudo lp -o landscape -o fit-to-page %s';
 	$config['print']['msg'] = '';
 	break;
 }
