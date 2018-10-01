@@ -1,6 +1,6 @@
 L10N = {
 	"gallery": "Galerie",
-	"startScreen": "<h1>Photobooth<\/h1><h2>Webinterface<\/h2> by Andr\u00e9 Rinas",
+	"startScreen": "<h1>Photobox<\/h1><h2>Webinterface<\/h2> by T&Y",
 	"takePhoto": "Foto erstellen!",
 	"home": "Home",
 	"qr": "QR Code",
