@@ -497,7 +497,7 @@ hr.small {
 
 /* Photoswipe Overrides */
 .pswp__caption {
-  display: none; }
+  /*display: none;*/ }
 
 .pswp__button--close {
   width: 50px;
