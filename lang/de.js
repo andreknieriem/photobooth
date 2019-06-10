@@ -26,6 +26,8 @@ L10N = {
 	"use_qr": "QR-Code aktivieren",
 	"show_gallery": "Galerie aktivieren",
 	"show_fork": "Fork Logo anzeigen",
+	"general_cntdwn_timer": "Countdown Timer einstellen",
+	"cntdwn_timer": "Countdown Timer in Sekunden",
 	"previewFromCam": "Vorschau aus der Tablet-Kamera anzeigen",
 	"newest_first": "Neueste Bilder zuerst anzeigen",
 	"folders_images": "Bild Ordner",

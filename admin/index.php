@@ -40,6 +40,24 @@ require_once('../config.inc.php');
 				'name' => 'show_fork',
 				'value' => $config['show_fork']
 			],
+			'cntdwn_timer' => [
+				'type' => 'select',
+				'name' => 'cntdwn_timer',
+				'placeholder' => '5',
+				'options' => [
+					'1' => '1',
+					'2' => '2',
+					'3' => '3',
+					'4' => '4',
+					'5' => '5',
+					'6' => '6',
+					'7' => '7',
+					'8' => '8',
+					'9' => '9',
+					'10' => '10'
+				],
+				'value' => $config['cntdwn_time']
+			],
 			'previewFromCam' => [
 				'type' => 'checkbox',
 				'name' => 'previewFromCam',

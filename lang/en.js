@@ -26,6 +26,8 @@ L10N = {
 	"use_qr": "Use QR Codes",
 	"show_gallery": "Show Gallery",
 	"show_fork": "Show Fork Badge",
+	"general_cntdwn_timer": "Set countdown timer",
+	"cntdwn_timer": "Countdown timer in seconds",
 	"previewFromCam": "See preview by device cam",
 	"newest_first": "Show latest images first",
 	"folders_images": "Image Folder",
