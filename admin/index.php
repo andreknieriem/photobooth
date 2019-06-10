@@ -30,6 +30,11 @@ require_once('../config.inc.php');
 				'name' => 'use_qr',
 				'value' => $config['use_qr']
 			],
+			'show_gallery' => [
+				'type' => 'checkbox',
+				'name' => 'show_gallery',
+				'value' => $config['gallery']['show']
+			],
 			'show_fork' => [
 				'type' => 'checkbox',
 				'name' => 'show_fork',
