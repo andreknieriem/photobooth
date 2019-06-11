@@ -95,6 +95,11 @@ require_once('../config.inc.php');
 				'type' => 'checkbox',
 				'name' => 'newest_first',
 				'value' => 1
+			],
+			'gallery_show_scrollbar' => [
+				'type' => 'checkbox',
+				'name' => 'gallery_show_scrollbar',
+				'value' => $config['gallery']['scrollbar']
 			]
 		],
 		'commands' => [
