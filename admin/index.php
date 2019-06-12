@@ -58,6 +58,12 @@ require_once('../config.inc.php');
 				],
 				'value' => $config['cntdwn_time']
 			],
+			'cheese_timer' => [
+				'type' => 'input',
+				'placeholder' => '1000',
+				'name' => 'cheese_timer',
+				'value' => $config['cheese_time']
+			],
 			'previewFromCam' => [
 				'type' => 'checkbox',
 				'name' => 'previewFromCam',
