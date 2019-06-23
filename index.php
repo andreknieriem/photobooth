@@ -20,7 +20,8 @@ require_once('db.php');
 	<link rel="mask-icon" href="/resources/img/safari-pinned-tab.svg" color="#5bbad5">
 	<meta name="msapplication-TileColor" content="#da532c">
 	<meta name="theme-color" content="#ffffff">
-
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
 	<link rel="stylesheet" href="/resources/css/normalize.css" />
 	<link rel="stylesheet" href="/resources/css/font-awesome.min.css" />
 	<link rel="stylesheet" href="/resources/css/photoswipe.css">
