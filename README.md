@@ -44,7 +44,7 @@ Get the Photobooth source and set perms
 ```
 cd /var/www/
 sudo rm -r html/
-sudo git clone https://github.com/andreknieriem/photobooth html
+sudo git clone https://github.com/andi34/photobooth html
 cd /var/www/html/resources/lib
 sudo git clone https://github.com/PHPMailer/PHPMailer
 cd /var/www/html
