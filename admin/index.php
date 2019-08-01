@@ -94,6 +94,11 @@ if (file_exists($my_config)) {
 				'name' => 'chroma_keying',
 				'value' => $config['chroma_keying']
 			],
+			'cups_button' => [
+				'type' => 'checkbox',
+				'name' => 'cups_button',
+				'value' => $config['cups_button']
+			],
 			'previewFromCam' => [
 				'type' => 'checkbox',
 				'name' => 'previewFromCam',

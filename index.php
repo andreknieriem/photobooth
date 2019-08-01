@@ -67,7 +67,7 @@ require_once('db.php');
 				<!-- accesskey to take a photo using alt+p (or use an external button)? -->
 				<a href="#" <?php if($config['use_gpio_button']){ ?>accesskey="p"<?php } ?> class="btn takePic"><i class="fa fa-camera"></i> <span data-l10n="takePhoto"></span></a>
 			</div>
-			<a class="btn" style="position:absolute;left:0;bottom:0;" href="http://<?php echo $_SERVER['HTTP_HOST'];?>:631/jobs/" target="newwin" onClick="window.open('','newwin','width=1024,height=600,left=0,top=0,screenX=0,screenY=0,resizable=NO,scrollbars=NO')"><span>CUPS</span></a>
+			<?php if($config['cups_button']){ ?><a class="btn" style="position:absolute;left:0;bottom:0;" href="http://<?php echo $_SERVER['HTTP_HOST'];?>:631/jobs/" target="newwin" onClick="window.open('','newwin','width=1024,height=600,left=0,top=0,screenX=0,screenY=0,resizable=NO,scrollbars=NO')"><span>CUPS</span></a><?php } ?>
 		</div>
 
 		<!-- image Filter Pane -->

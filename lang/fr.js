@@ -31,6 +31,7 @@ L10N = {
 	"file_format_date": "Utilisez images au format date",
 	"chroma_keying": "Autoriser l'incrustation chromatique",
 	"keyingerror" : "L'incrustation chroma n'est pas possible!",
+	"cups_button": "Afficher le bouton CUPS",
 	"use_print": "Utiliser l'impression",
 	"use_qr": "Utiliser les codes QR",
 	"show_gallery": "Montrer la galerie",
