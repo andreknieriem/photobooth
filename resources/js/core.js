@@ -131,6 +131,15 @@ var photoBooth = (function () {
         });
     }
 
+    // .takePic when pressing Enter=13
+    $(document).ready(function() {
+        $(document).on('keypress', function(e) {
+            if(e.keyCode==13){
+                $('.takePic').trigger('click');
+            }
+        });
+    });
+
     // Show error Msg and reset
     public.errorPic = function (result) {
         setTimeout(function () {
