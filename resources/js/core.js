@@ -30,7 +30,7 @@ var photoBooth = (function () {
     // timeOut function
     public.resetTimeOut = function () {
         timeOut = setTimeout(function () {
-            window.location = window.location.origin;
+            window.location = window.location;
         }, timeToLive);
     }
 
