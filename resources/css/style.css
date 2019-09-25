@@ -856,6 +856,11 @@ hr.small {
   text-align: center;
 }
 
+#useBuzzer {
+ font-size: 100%;
+ margin-top: 50px;
+}
+
 @media (max-width: 767px) {
   /* line 672, ../sass/style.scss */
   .takePic {

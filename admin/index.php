@@ -68,10 +68,16 @@ if (file_exists($my_config)) {
 				'name' => 'use_mail',
 				'value' => $config['use_mail']
 			],
-			'use_gpio_button' => [
-				'type' => 'checkbox',
-				'name' => 'use_gpio_button',
-				'value' => $config['use_gpio_button']
+			'trigger_button' => [
+				'type' => 'select',
+				'name' => 'trigger_button',
+				'placeholder' => 'trigger_button',
+				'options' => [
+					'html' => 'HTML',
+					'gpio' => 'GPIO',
+					'html-gpio' => 'HTML + GPIO'
+				],
+				'value' => $config['trigger_button']
 			],
 			'cntdwn_time' => [
 				'type' => 'input',

@@ -75,9 +75,31 @@ require_once('db.php');
 				};
 				?>
 				<?php if($config['use_filter']){ ?><a href="#" class="btn imageFilter"><i class="fa fa-magic"></i> <span data-l10n="selectFilter"></span></a><?php } ?>
-				<?php if($config['use_collage']){ ?><a href="#" <?php if($config['use_gpio_button']){ ?>accesskey="m"<?php } ?> class="btn takeCollage"><i class="fa fa-camera"></i> <span data-l10n="takeCollage"></span></a><?php } ?>
-				<!-- accesskey to take a photo using alt+p (or use an external button)? -->
-				<a href="#" <?php if($config['use_gpio_button']){ ?>accesskey="p"<?php } ?> class="btn takePic"><i class="fa fa-camera"></i> <span data-l10n="takePhoto"></span></a>
+			
+				<?php
+				if($config['trigger_button'] == 'html-gpio') {
+
+				if($config['use_collage']){ ?><a href="#" accesskey="m"  class="btn takeCollage"><i class="fa fa-camera"></i> <span data-l10n="takeCollage"></span></a><?php } ?>
+					<!-- accesskey to take a photo using alt+p (or use an external button)? -->
+					<a href="#" accesskey="p" class="btn takePic"><i class="fa fa-camera"></i> <span data-l10n="takePhoto"></span></a>
+
+				<?php
+				} elseif ($config['trigger_button'] == 'html') {
+
+				if($config['use_collage']){ ?><a href="#" class="btn takeCollage"><i class="fa fa-camera"></i> <span data-l10n="takeCollage"></span></a><?php } ?>
+ 					<!-- accesskey to take a photo using alt+p (or use an external button)? -->
+					<a href="#" class="btn takePic"><i class="fa fa-camera"></i> <span data-l10n="takePhoto"></span></a>
+
+				<?php
+				} else {
+
+				if($config['use_collage']){ ?><a href="#" accesskey="m" class="takeCollage"></a><?php } ?>
+					<!-- accesskey to take a photo using alt+p (or use an external button)? -->
+					<a href="#" accesskey="p" class="takePic"></a>
+					<div id="useBuzzer"><a><span data-l10n="use_button"></span></a></div>
+				<?php
+				};
+				?>
 			</div>
 		</div>
 
@@ -139,8 +161,15 @@ require_once('db.php');
 			<?php if($config['use_qr']){ echo '<a href="#" class="btn qrbtn"><span class="qrbtnlabel"><i class="fa fa-qrcode"></i> <span data-l10n="qr"></span></span></a>'; } ?>
 			<?php if($config['use_mail']){ echo '<a href="#" class="btn mailbtn"><span class="mailbtnlabel"><i class="fa fa-cloud-download"></i> <span data-l10n="mail"></span></span></a>'; } ?>
 			<?php if($config['use_print']){ echo '<a href="#" class="btn printbtn"><i class="fa fa-print"></i> <span data-l10n="print"></span></a>'; } ?>
-			<a href="#" class="btn newpic"><i class="fa fa-camera"></i> <span data-l10n="newPhoto"></span></a>
-			<?php if($config['use_collage']){ echo '<a href="#" class="btn newcollage"><i class="fa fa-camera"></i> <span data-l10n="newCollage"></span></a>'; } ?>
+			<?php
+			if($config['trigger_button'] == 'html-gpio' OR $config['trigger_button'] == 'html') {
+			?>
+				<a href="#" class="btn newpic"><i class="fa fa-camera"></i> <span data-l10n="newPhoto"></span></a>
+ 				<?php if($config['use_collage']){ echo '<a href="#" class="btn newcollage"><i class="fa fa-camera"></i> <span data-l10n="newCollage"></span></a>'; } ?>
+
+			<?php
+			};
+			?>
 			</div>
 			<?php if($config['use_qr']){ echo '<div class="qr"></div>';} ?>
 		</div>

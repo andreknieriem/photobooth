@@ -14,7 +14,6 @@ $config['print_qrcode'] = true;
 $config['print_frame'] = false;
 $config['use_mail'] = false; // mail data needs to be configured
 $config['use_mobile_view'] = false;
-$config['use_gpio_button'] = false; // Use alt+p to take a new picture, can be triggered via GPIO24
 $config['show_fork'] = true;
 $config['previewFromCam'] = false; // experimental see https://github.com/andreknieriem/photobooth/pull/30
 $config['file_format_date'] = false;
@@ -26,6 +25,7 @@ $config['polaroid_rotation'] = '0';
 $config['chroma_keying'] = true;
 $config['use_collage'] = false;
 $config['bluegray_theme'] = false;
+$config['trigger_button'] = 'html';
 
 // LANGUAGE
 // possible values: en, de, es, fr
