@@ -32,7 +32,7 @@ $(function() {
                         elem.removeClass('error success');
 
                         window.location.reload();
-                    }, 3000);
+                    }, 4000);
                 }
             });
         }
@@ -58,7 +58,7 @@ $(function() {
                     if (resp === 'success') {
                         window.location.reload();
                     }
-                }, 2000);
+                }, 4000);
             }
         });
     });
