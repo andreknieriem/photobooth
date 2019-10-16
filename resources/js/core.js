@@ -136,6 +136,7 @@ const photoBooth = (function () {
         loader.addClass('open');
         public.startCountdown(config.cntdwn_time, $('#counter'), () => {
             public.cheese(photoStyle);
+            public.takePic(photoStyle);
         });
     }
 
@@ -154,7 +155,7 @@ const photoBooth = (function () {
         }
 
         setTimeout(() => {
-            public.takePic(photoStyle);
+//            public.takePic(photoStyle);
         }, config.cheese_time);
     }
 
@@ -171,7 +172,7 @@ const photoBooth = (function () {
         const processingDelay = setTimeout(() => {
             $('.spinner').show();
             $('.loading').text(photoStyle === 'photo' ? L10N.busy : L10N.busyCollage);
-        }, 500);
+        }, 1800);
 
         const data = {
             filter: imgFilter,
