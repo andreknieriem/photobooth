@@ -147,15 +147,15 @@ const photoBooth = (function () {
 
         $('#counter').text('');
 
-        if (photoStyle === 'photo') {
-            $('.loading').text(L10N.cheese);
-        } else {
-            $('.loading').text(L10N.cheeseCollage);
-        }
-
         setTimeout(() => {
-            public.takePic(photoStyle);
+            if (photoStyle === 'photo') {
+                $('.loading').text(L10N.cheese);
+            } else {
+                $('.loading').text(L10N.cheeseCollage);
+            }
         }, config.cheese_time);
+        
+        public.takePic(photoStyle);
     }
 
     // take Picture
