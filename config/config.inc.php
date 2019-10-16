@@ -55,7 +55,7 @@ $config['folders']['data'] = 'data';
 $config['is_wedding'] = false;
 $config['wedding']['groom'] = 'Name 1';
 $config['wedding']['bride'] = 'Name 2';
-$config['wedding']['symbol'] = 'fa-heart-o';
+$config['wedding']['symbol'] = null;
 
 // GALLERY
 // should the gallery list the newest pictures first?
