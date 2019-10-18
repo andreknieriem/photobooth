@@ -1,5 +1,7 @@
 /* exported L10N */
 const L10N = {
+    'processing_delay': 'Délai de traitement',
+    'general_processing_delay': 'Délai de traitement en millisecondes',
     'continuous_collage': 'Prendre un photo montage sans interruption',
     'delete': 'Effacer',
     'using_latest_version': 'Vous utilisez la dernière version de photobooth',

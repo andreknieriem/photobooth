@@ -107,6 +107,12 @@ $configsetup = [
 			'name' => 'cheese_time',
 			'value' => $config['cheese_time']
 		],
+		'processing_delay' => [
+			'type' => 'input',
+			'placeholder' => '500',
+			'name' => 'processing_delay',
+			'value' => $config['processing_delay']
+		],
 		'use_filter' => [
 			'type' => 'checkbox',
 			'name' => 'use_filter',

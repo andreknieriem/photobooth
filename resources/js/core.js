@@ -171,7 +171,7 @@ const photoBooth = (function () {
         const processingDelay = setTimeout(() => {
             $('.spinner').show();
             $('.loading').text(photoStyle === 'photo' ? L10N.busy : L10N.busyCollage);
-        }, 500);
+        }, config.processing_delay);
 
         const data = {
             filter: imgFilter,

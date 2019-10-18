@@ -19,6 +19,7 @@ $config['cups_button'] = false;
 $config['file_format_date'] = false;
 $config['cntdwn_time'] = '5'; // control countdown timer
 $config['cheese_time'] = '1000'; // control time for cheeeeese!
+$config['processing_delay'] = '500';
 $config['use_filter'] = true;
 $config['polaroid_effect'] = false;
 $config['polaroid_rotation'] = '0';

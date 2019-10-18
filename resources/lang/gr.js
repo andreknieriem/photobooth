@@ -1,5 +1,7 @@
 /* exported L10N */
 const L10N = {
+    'processing_delay': 'Καθυστέρηση επεξεργασίας',
+    'general_processing_delay': 'Η καθυστέρηση επεξεργασίας σε χιλιοστά του δευτερολέπτου',
     'continuous_collage': 'Εγγραφή κολάζ χωρίς διακοπή',
     'delete': 'διαγραφή',
     'using_latest_version': 'Το Photobooth είναι ενημερωμένο.',
