@@ -36,7 +36,7 @@ A Photobooth webinterface for Raspberry Pi and Windows.
 
 ## :gear: Prerequisites
 - gphoto2 installed, if used on a Raspberry for DSLR control
-- digiCamControl, if used unter Windows for DSLR control
+- digiCamControl, if used under Windows for DSLR control
 - Apache
 
 ## :wrench: Installation & Troubleshooting

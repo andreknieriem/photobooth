@@ -78,10 +78,13 @@ if (file_exists($my_config_file)) {
     $config = array_deep_merge($defaultConfig, $config);
 }
 
+// display errors only in dev mode
 if ($config['dev']) {
     ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
+}else {
+    error_reporting(0);
 }
 
 if (is_array($config['color_theme'])) {
@@ -92,12 +95,14 @@ if (is_array($config['color_theme'])) {
     $config['colors'] = $colors['default'];
 }
 
-if (file_exists($my_config_file) && !is_writable($my_config_file)) {
+// check config file and permissions
+if (!file_exists($my_config_file)) {
+    die('Abort. Can not find config/my.config.inc.php. Create it manually based on the config.inc.php template.');
+} elseif(!is_writable($my_config_file)) {
     die('Abort. Can not write config/my.config.inc.php.');
-} elseif (!file_exists($my_config_file) && !is_writable(__DIR__ . '/../config/')) {
-    die('Abort. Can not create config/my.config.inc.php. Config folder is not writable.');
 }
 
+// create folder
 foreach ($config['folders'] as $key => $folder) {
     $path = __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . $folder;
 

@@ -70,8 +70,6 @@ info "### Photobooth needs some software to run."
 apt install -y libapache2-mod-php php-gd gphoto2 unclutter
 
 cd /var/www/
-rm -rf html
-mkdir html
 
 echo -e "\033[0;33m### Do you like to install from git? This will take more"
 read -p "### time and is recommended only for brave users. [y/N] " -n 1 -r
@@ -115,7 +113,9 @@ else
 fi
 
 info "### Setting permissions."
-chown -R www-data:www-data /var/www/
+mkdir data
+chown -R www-data:www-data data
+chown -R www-data:www-data config
 
 gpasswd -a www-data plugdev
 gpasswd -a www-data lp
