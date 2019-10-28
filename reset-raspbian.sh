@@ -44,7 +44,6 @@ if [ "$factoryReset" != "${factoryReset#[Yy]}" ] ;then
 
     info "### Remove your config file ..."
     rm -rf config/my.config.inc.php
-    chown -R www-data:www-data data
 
     info "### Successful removed your data."
 else
