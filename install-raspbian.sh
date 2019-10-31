@@ -124,7 +124,7 @@ else
         jq '.assets[].browser_download_url | select(endswith(".tar.gz"))' |
         xargs curl -L --output /tmp/photobooth-latest.tar.gz
 
-    mkdir $INSTALLFOLDERPATH
+    mkdir -p $INSTALLFOLDERPATH
     tar -xzvf /tmp/photobooth-latest.tar.gz -C $INSTALLFOLDERPATH
     cd $INSTALLFOLDERPATH
 fi
