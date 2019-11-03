@@ -9,6 +9,7 @@ function l10n(elem) {
 
         if (!translation) {
             console.warn('No translation for: ', key);
+            return;
         }
 
         item.html(translation || key);

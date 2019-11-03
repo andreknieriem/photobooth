@@ -44,7 +44,7 @@ $imagelist = ($config['newest_first'] === true) ? array_reverse($images) : $imag
 
 	<div class="send-mail">
 		<i class="fa fa-times" id="send-mail-close"></i>
-		<p data-l10n="insertMail"></p>
+		<p data-l10n="insertMail">Enter your email address to receive the photo</p>
 		<form id="send-mail-form" style="margin: 0;">
 			<input class="mail-form-input" size="35" type="email" name="sendTo">
 			<input id="mail-form-image" type="hidden" name="image" value="">

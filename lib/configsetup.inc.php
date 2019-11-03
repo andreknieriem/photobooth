@@ -5,7 +5,7 @@ $configsetup = [
 	'general' => [
 		'language' => [
 			'type' => 'select',
-			'name' => 'language',
+			'name' => 'Language',
 			'placeholder' => 'language',
 			'options' => [
 				'de' => 'DE',
@@ -19,48 +19,48 @@ $configsetup = [
 		'start_screen_title' => [
 			'type' => 'input',
 			'placeholder' => 'Photobooth',
-			'name' => 'start_screen_title',
+			'name' => 'Start screen title',
 			'value' => $config['start_screen_title']
 		],
 		'start_screen_subtitle' => [
 			'type' => 'input',
 			'placeholder' => 'Webinterface by André Rinas',
-			'name' => 'start_screen_subtitle',
+			'name' => 'Start screen subtitle',
 			'value' => $config['start_screen_subtitle']
 		],
 		'dev' => [
 			'type' => 'checkbox',
-			'name' => 'dev',
+			'name' => 'Dev mode',
 			'value' => $config['dev']
 		],
 		'show_error_messages' => [
 			'type' => 'checkbox',
-			'name' => 'show_error_messages',
+			'name' => 'Show error messages',
 			'value' => $config['show_error_messages']
 		],
 		'file_format_date' => [
 			'type' => 'checkbox',
-			'name' => 'file_format_date',
+			'name' => 'Use dateformat images',
 			'value' => $config['file_format_date']
 		],
 		'use_print' => [
 			'type' => 'checkbox',
-			'name' => 'use_print',
+			'name' => 'Use Print',
 			'value' => $config['use_print']
 		],
 		'use_qr' => [
 			'type' => 'checkbox',
-			'name' => 'use_qr',
+			'name' => 'Use QR Codes',
 			'value' => $config['use_qr']
 		],
 		'use_mail' => [
 			'type' => 'checkbox',
-			'name' => 'use_mail',
+			'name' => 'Use e-mail',
 			'value' => $config['use_mail']
 		],
 		'photo_key' => [
 			'type' => 'input',
-			'name' => 'photo_key',
+			'name' => 'Key code which triggers a photo',
 			'placeholder' => '',
 			'value' => $config['photo_key']
 		],

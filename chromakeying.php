@@ -72,13 +72,13 @@ if (file_exists($keyingimage)) {
 		</div>
 
 		<div class="chroma-control-bar">
-			<a class="btn btn--flex" id="save-btn" href="#"><i class="fa fa-floppy-o"></i> <span data-l10n="save"></span></a>
+			<a class="btn btn--flex" id="save-btn" href="#"><i class="fa fa-floppy-o"></i> <span data-l10n="save">Save</span></a>
 
 			<?php if ($config['use_print']): ?>
-				<a class="btn btn--flex" id="print-btn" href="#"><i class="fa fa-print"></i> <span data-l10n="print"></span></a>
+				<a class="btn btn--flex" id="print-btn" href="#"><i class="fa fa-print"></i> <span data-l10n="print">Print</span></a>
 			<?php endif; ?>
 
-			<a class="btn btn--flex" id="close-btn" href="#"><i class="fa fa-times"></i> <span data-l10n="close"></span></a>
+			<a class="btn btn--flex" id="close-btn" href="#"><i class="fa fa-times"></i> <span data-l10n="close">Close</span></a>
 		</div>
 	<?php else:?>
 		<div style="text-align:center;padding-top:250px">

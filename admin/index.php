@@ -35,19 +35,19 @@ require_once('../lib/configsetup.inc.php');
 			</span>
 			<span class="saving">
 				<i class="fa fa-circle-o-notch fa-spin fa-fw"></i>
-				<span data-l10n="saving"></span>
+				<span data-l10n="saving">Saving...</span>
 			</span>
 			<span class="success">
 				<i class="fa fa-check"></i>
-				<span data-l10n="success"></span>
+				<span data-l10n="success">Success!</span>
 			</span>
 			<span class="error">
 				<i class="fa fa-times"></i>
-				<span data-l10n="saveerror"></span>
+				<span data-l10n="saveerror">Ooops! Something went wrong!</span>
 			</span>
 		</button>
 		<div id="checkVersion">
-			<p><a href="#" class="btn btn--tiny btn--flex"><span data-l10n="check_version"></span></a></p>
+			<p><a href="#" class="btn btn--tiny btn--flex"><span data-l10n="check_version">Check version</span></a></p>
 		</div>
 		<div class="accordion">
 			<form>
@@ -63,22 +63,22 @@ require_once('../lib/configsetup.inc.php');
 						';
 
 						foreach($fields as $key => $field){
+							$nameField = 'name="' . $key . '"';
 							echo '<div class="form-row">';
 							switch($field['type']) {
 								case 'input':
-									echo '<label data-l10n="'.$panel.'_'.$key.'">'.$panel.'_'.$key.'</label><input type="text" name="'.$field['name'].'" value="'.$field[
-										'value'].'" placeholder="'.$field['placeholder'].'"/>';
+									echo '<label data-l10n="'.$panel.'_'.$key.'">' . $field['name'] . '</label><input type="text" ' . $nameField . ' value="'.$field['value'].'" placeholder="'.$field['placeholder'].'"/>';
 								break;
 								case 'checkbox':
 									$checked = '';
 									if ($field['value'] == 'true') {
 										$checked = ' checked="checked"';
 									}
-									echo '<label><input type="checkbox" '.$checked.' name="'.$field['name'].'" value="true"/><span data-l10n="'.$key.'">'.$key.'</span></label>';
+									echo '<label><input type="checkbox" '.$checked.' ' . $nameField . ' value="true"/><span data-l10n="'.$key.'" class="fooo">' . $field['name'] . '</span></label>';
 								break;
 								case 'select':
-									echo '<label data-l10n="'.$panel.'_'.$key.'">'.$panel.'_'.$key.'</label><select name="'.$field['name'].'">
-										<option data-l10n="'.$key.'"></option>
+									echo '<label data-l10n="'.$panel.'_'.$key.'">' . $field['name'] . '</label><select ' . $nameField . '>
+										<option data-l10n="'.$key.'">' . $field['name'] . '</option>
 									';
 										foreach($field['options'] as $val => $option) {
 											$selected = '';
@@ -99,19 +99,19 @@ require_once('../lib/configsetup.inc.php');
 			</form>
 			<button class="save-btn">
 				<span class="save">
-					<span data-l10n="save"></span>
+					<span data-l10n="save">Save</span>
 				</span>
 				<span class="saving">
 					<i class="fa fa-circle-o-notch fa-spin fa-fw"></i>
-					<span data-l10n="saving"></span>
+					<span data-l10n="saving">Saving...</span>
 				</span>
 				<span class="success">
 					<i class="fa fa-check"></i>
-					<span data-l10n="success"></span>
+					<span data-l10n="success">Success!</span>
 				</span>
 				<span class="error">
 					<i class="fa fa-times"></i>
-					<span data-l10n="saveerror"></span>
+					<span data-l10n="saveerror">Ooops! Something went wrong!</span>
 				</span>
 			</button>
 		</div>
