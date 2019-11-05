@@ -102,3 +102,8 @@ $config['jpeg_quality_thumb'] = 60;
 $config['jpeg_quality_chroma'] = 70;
 $config['jpeg_quality_image'] = 80;
 
+// TODO (Documentation) For this feature to work the webserver must be configured
+// to listen on IPv4 interfaces only. It does not work with IPv6!
+$config['use_privileged_access'] = false; //TODO default to false
+$config['privileged_ips']['0'] = '127.0.0.1';
+//TODO there could be an option for 'guest_ips' - which, if empty, allows guest access for any IP

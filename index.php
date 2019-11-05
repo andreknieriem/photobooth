@@ -4,6 +4,11 @@ require_once('lib/config.php');
 require_once('lib/db.php');
 require_once('lib/filter.php');
 
+if ($config['use_privileged_access'] === true && !in_array($_SERVER['REMOTE_ADDR'], $config['privileged_ips']) ) {
+	header('Location: gallery.php');
+	die(sprintf("%s is not allowed to access this page", $_SERVER['REMOTE_ADDR']));
+}
+
 $images = getImagesFromDB();
 $imagelist = ($config['newest_first'] === true) ? array_reverse($images) : $images;
 ?>
