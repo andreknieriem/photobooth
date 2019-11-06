@@ -262,6 +262,10 @@ const photoBooth = (function () {
                     public.renderPic(data.file);
                 }
             },
+            error: (data) => {
+                console.log('An error occurred', data);
+                public.errorPic(data);
+            },
         });
     }
 
