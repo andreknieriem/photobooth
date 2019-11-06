@@ -42,13 +42,6 @@ if (!file_exists($filename_tmp)) {
     ]));
 }
 
-$imageResource = imagecreatefromjpeg($filename_tmp);
-
-if (!$imageResource) {
-    die(json_encode([
-        'error' => 'Could not read jpeg file. Are you taking raws?',
-    ]));
-}
 
 if (!isset($_POST['filter'])) {
     die(json_encode([
@@ -58,36 +51,47 @@ if (!isset($_POST['filter'])) {
 
 $image_filter = false;
 
-if (!empty($_POST['filter']) && $_POST['filter'] !== 'imgPlain') {
+if (!empty($_POST['filter']) && $_POST['filter'] !== FILTER_PLAIN) {
     $image_filter = $_POST['filter'];
 }
 
 // apply filter
 if ($image_filter) {
-    applyFilter($image_filter, $imageResource);
+    applyFilter($image_filter, createImageResource($imageResource, $filename_tmp));
 }
 
 if ($config['polaroid_effect']) {
     $polaroid_rotation = $config['polaroid_rotation'];
 
-    $imageResource = effectPolaroid($imageResource, $polaroid_rotation, 200, 200, 200);
+    $imageResource = effectPolaroid(createImageResource($imageResource, $filename_tmp), $polaroid_rotation, 200, 200, 200);
 }
 
 if ($config['chroma_keying']) {
-    $chromaCopyResource = resizeImage($imageResource, 1500, 1000);
+    $chromaCopyResource = resizeImage(createImageResource($imageResource, $filename_tmp), 1500, 1000);
 
     imagejpeg($chromaCopyResource, $filename_keying, $config['jpeg_quality_chroma']);
     imagedestroy($chromaCopyResource);
 }
 
+if (empty($imageResource)) {
+    if (!copy($filename_tmp, $filename_photo)) {
+        die(json_encode([
+            'error' => 'Image copy failed'
+        ]));
+    }
+} else {
+    imagejpeg($imageResource, $filename_photo, $config['jpeg_quality_image']);
+}
+
+
 // image scale, create thumbnail
-$thumbResource = resizeImage($imageResource, 500, 500);
+$thumbResource = resizeImage(createImageResource($imageResource, $filename_tmp), 500, 500);
+
 
 imagejpeg($thumbResource, $filename_thumb, $config['jpeg_quality_thumb']);
 imagedestroy($thumbResource);
 
-imagejpeg($imageResource, $filename_photo, $config['jpeg_quality_image']);
-imagedestroy($imageResource);
+if (!empty($imageResource)) imagedestroy($imageResource);
 
 // insert into database
 appendImageToDB($file);
@@ -95,3 +99,17 @@ appendImageToDB($file);
 echo json_encode([
     'file' => $file,
 ]);
+
+
+function createImageResource(&$imageResource, $path) {
+
+    if(empty($imageResource)) {
+        $imageResource = imagecreatefromjpeg($path);
+        if (!$imageResource) {
+            die(json_encode([
+                'error' => 'Could not read jpeg file. Are you taking raws?',
+            ]));
+        }
+    }
+    return $imageResource;
+}
