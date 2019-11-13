@@ -42,7 +42,7 @@
                 <?php endif; ?>
 
                 <?php if ($config['use_download'] && $_SERVER['REMOTE_ADDR'] !== $_SERVER['SERVER_ADDR']): ?>
-                <button class="pswp__button pswp__button--download" title="Download"><i class="fa fa-download"></i></button>
+                <a href="" download="" class="pswp__button pswp__button--download" title="Download"><i class="fa fa-download"></i></a>
                 <?php endif; ?>
 
                 <?php if ($config['chroma_keying']): ?>

@@ -3,7 +3,6 @@
 function initPhotoSwipeFromDOM (gallerySelector) {
 
     let gallery;
-    let img;
 
     const parseThumbnailElements = function (container) {
         return $(container).find('>a').map(function () {
@@ -121,6 +120,11 @@ function initPhotoSwipeFromDOM (gallerySelector) {
             }
         });
 
+        gallery.listen('afterChange', function() {
+            const img = gallery.currItem.src.split('/').pop();
+            $('.pswp__button--download').attr({href: 'api/download.php?image=' + img});
+        });
+
         const resetMailForm = function () {
             $('.pswp__qr').removeClass('qr-active').fadeOut('fast');
 
@@ -133,8 +137,6 @@ function initPhotoSwipeFromDOM (gallerySelector) {
         gallery.listen('close', resetMailForm);
 
         gallery.init();
-
-        img = gallery.currItem.src.split('/').pop();
     };
 
     // QR in gallery
@@ -147,6 +149,8 @@ function initPhotoSwipeFromDOM (gallerySelector) {
             pswpQR.removeClass('qr-active').fadeOut('fast');
         } else {
             pswpQR.empty();
+            let img = gallery.currItem.src;
+            img = img.split('/').pop();
 
             $('<img>').attr('src', 'api/qrcode.php?filename=' + img).appendTo(pswpQR);
 
@@ -158,6 +162,8 @@ function initPhotoSwipeFromDOM (gallerySelector) {
     $('.pswp__button--print').on('click', function (e) {
         e.preventDefault();
 
+        const img = gallery.currItem.src.split('/').pop();
+
         photoBooth.printImage(img, () => {
             gallery.close();
         });
@@ -167,6 +173,8 @@ function initPhotoSwipeFromDOM (gallerySelector) {
     $('.pswp__button--print-chroma-keying').on('click', function (e) {
         e.preventDefault();
 
+        const img = gallery.currItem.src.split('/').pop();
+
         if (config.chroma_keying) {
             location = 'chromakeying.php?filename=' + encodeURI(img);
         }
@@ -175,13 +183,10 @@ function initPhotoSwipeFromDOM (gallerySelector) {
     $('.pswp__button--mail').on('click touchstart', function (e) {
         e.preventDefault();
         e.stopPropagation();
-        photoBooth.toggleMailDialog(img);
-    });
 
-    $('.pswp__button--download').on('click touchstart', function (e) {
-        e.preventDefault();
-        e.stopPropagation();	
-        location = 'api/download.php?image=' + img;
+        const img = gallery.currItem.src.split('/').pop();
+
+        photoBooth.toggleMailDialog(img);
     });
 
     $(gallerySelector).on('click', onThumbnailClick);
