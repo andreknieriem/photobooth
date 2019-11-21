@@ -128,5 +128,6 @@ const L10N = {
     'jpeg_quality_jpeg_quality_thumb': 'Ποιότητα JPEG για μικρογραφίες (-1 ... 100)',
     'abort': 'Αποβάλλω',
     'slideshow': 'Slideshow',
-    'slideshow_refreshTime': 'Ανανεώστε τη σελίδα ανά X δευτερόλεπτα'
+    'slideshow_refreshTime': 'Ανανεώστε τη σελίδα ανά X δευτερόλεπτα',
+    'slideshow_pictureTime': 'Σε χιλιοστά του δευτερολέπτου εμφανίζεται μια εικόνα'
 }

@@ -129,5 +129,6 @@ const L10N = {
     'jpeg_quality_jpeg_quality_thumb': 'JPEG quality for thumbnails (-1 ... 100)',
     'abort': 'Abort',
     'slideshow': 'Slideshow',
-    'slideshow_refreshTime': 'Refresh page afert X seconds'
+    'slideshow_refreshTime': 'Refresh page afert X seconds',
+    'slideshow_pictureTime': 'Milliseconds an image is displayed'
 }
