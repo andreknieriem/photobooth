@@ -130,5 +130,6 @@ const L10N = {
     'abort': 'Abort',
     'slideshow': 'Slideshow',
     'slideshow_refreshTime': 'Refresh page afert X seconds',
-    'slideshow_pictureTime': 'Milliseconds an image is displayed'
+    'slideshow_pictureTime': 'Milliseconds an image is displayed',
+    'randomPicture': 'Show random pictures'
 }

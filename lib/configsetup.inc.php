@@ -455,6 +455,11 @@ $configsetup = [
 			'placeholder' => '3000',
 			'name' => 'slideshow_pictureTime',
 			'value' => $config['slideshow_pictureTime']
+		],
+		'randomPicture' => [
+			'type' => 'checkbox',
+			'name' => 'slideshow_randomPicture',
+			'value' => $config['slideshow_randomPicture']
 		]
 	],
 	'commands' => [
