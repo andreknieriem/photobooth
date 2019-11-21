@@ -70,6 +70,9 @@ $config['scrollbar'] = false;
 $config['show_date'] = false; // only works if file_format_date = true
 $config['gallery']['date_format'] = 'd.m.Y - G:i';
 
+// SLIDESHOW
+$config['slideshow_refreshTime'] = '60';
+
 // TEXT ON PRINT
 $config['is_textonprint'] = false;
 $config['textonprint']['line1'] = 'line 1';
