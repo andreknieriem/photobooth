@@ -2,7 +2,7 @@
 /* global photoBooth */
 function initPhotoSwipeFromDOM (gallerySelector) {
 
-    let gallery;
+    var gallery;
 
     const parseThumbnailElements = function (container) {
         return $(container).find('>a').map(function () {
@@ -67,20 +67,21 @@ function initPhotoSwipeFromDOM (gallerySelector) {
             shareEl: false,
             zoomEl: false,
             fullscreenEl: false,
+	    tapToToggleControls: false
         };
 
         // Pass data to PhotoSwipe and initialize it
         gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, options);
 
         // see: http://photoswipe.com/documentation/responsive-images.html
-        let realViewportWidth,
+        var realViewportWidth,
             useLargeImages = false,
             firstResize = true,
             imageSrcWillChange;
 
         gallery.listen('beforeResize', function () {
 
-            let dpiRatio = window.devicePixelRatio ? window.devicePixelRatio : 1;
+            var dpiRatio = window.devicePixelRatio ? window.devicePixelRatio : 1;
             dpiRatio = Math.min(dpiRatio, 2.5);
             realViewportWidth = gallery.viewportSize.x * dpiRatio;
 
@@ -154,7 +155,7 @@ function initPhotoSwipeFromDOM (gallerySelector) {
             pswpQR.removeClass('qr-active').fadeOut('fast');
         } else {
             pswpQR.empty();
-            let img = gallery.currItem.src;
+            var img = gallery.currItem.src;
             img = img.split('/').pop();
 
             $('<img>').attr('src', 'api/qrcode.php?filename=' + img).appendTo(pswpQR);
@@ -170,7 +171,7 @@ function initPhotoSwipeFromDOM (gallerySelector) {
 
         const img = gallery.currItem.src.split('/').pop();
 
-        photoBooth.printImage(img, () => {
+        photoBooth.printImage(img, function() {
             gallery.close();
         });
     });

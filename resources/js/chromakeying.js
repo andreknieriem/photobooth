@@ -1,13 +1,13 @@
 /* globals MarvinColorModelConverter AlphaBoundary MarvinImage */
 /* exported setBackgroundImage */
-let mainImage;
-let mainImageWidth;
-let mainImageHeight;
-let backgroundImage;
+var mainImage;
+var mainImageWidth;
+var mainImageHeight;
+var backgroundImage;
 
 function greenToTransparency(imageIn, imageOut) {
-    for (let y = 0; y < imageIn.getHeight(); y++) {
-        for (let x = 0; x < imageIn.getWidth(); x++) {
+    for (var y = 0; y < imageIn.getHeight(); y++) {
+        for (var x = 0; x < imageIn.getWidth(); x++) {
 
             const color = imageIn.getIntColor(x, y);
             const hsv = MarvinColorModelConverter.rgbToHsv([color]);
@@ -22,8 +22,8 @@ function greenToTransparency(imageIn, imageOut) {
 }
 
 function reduceGreen(image) {
-    for (let y = 0; y < image.getHeight(); y++) {
-        for (let x = 0; x < image.getWidth(); x++) {
+    for (var y = 0; y < image.getHeight(); y++) {
+        for (var x = 0; x < image.getWidth(); x++) {
             const r = image.getIntComponent0(x, y);
             const g = image.getIntComponent1(x, y);
             const b = image.getIntComponent2(x, y);
@@ -43,8 +43,8 @@ function reduceGreen(image) {
 
 function alphaBoundary(imageOut, radius) {
     const ab = new AlphaBoundary();
-    for (let y = 0; y < imageOut.getHeight(); y++) {
-        for (let x = 0; x < imageOut.getWidth(); x++) {
+    for (var y = 0; y < imageOut.getHeight(); y++) {
+        for (var x = 0; x < imageOut.getWidth(); x++) {
             ab.alphaRadius(imageOut, x, y, radius);
         }
     }
@@ -164,12 +164,12 @@ function printImageHandler(ev) {
     $('#print_mesg').addClass('modal--show');
 
     setTimeout(function () {
-        saveImage((data) => {
+        saveImage(function(data) {
             if (!data.success) {
                 return;
             }
 
-            printImage(data.filename, () => {
+            printImage(data.filename, function() {
                 setTimeout(function () {
                     $('#print_mesg').removeClass('modal--show');
 
@@ -186,7 +186,7 @@ function saveImageHandler(ev) {
     $('#save_mesg').addClass('modal--show');
 
     setTimeout(function () {
-        saveImage(() => {
+        saveImage(function() {
             setTimeout(function () {
                 $('#save_mesg').removeClass('modal--show');
             }, 2000);

@@ -87,10 +87,10 @@ $imagelist = ($config['newest_first'] === true) ? array_reverse($images) : $imag
 	<script type="text/javascript" src="resources/lang/<?php echo $config['language']; ?>.js"></script>
 	<script>
 		$(function() {
-			let reloadElement = $('<a>');
+			var reloadElement = $('<a>');
 			reloadElement.append('<i class="fa fa-refresh"></i>');
 			reloadElement.attr('href', '#');
-			reloadElement.on('click', () => photoBooth.reloadPage());
+			reloadElement.on('click', function() { photoBooth.reloadPage()} );
 			reloadElement.appendTo('.gallery__header');
 
 			$('.gallery__close').hide();

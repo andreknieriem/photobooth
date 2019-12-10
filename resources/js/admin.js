@@ -71,8 +71,8 @@ $(function() {
         $.ajax({
             url: '../api/checkVersion.php',
             method: 'GET',
-            success: (data) => {
-                let message = 'Error';
+            success: function(data) {
+                var message = 'Error';
                 $('#checkVersion').empty();
                 console.log('data', data)
                 if (!data.updateAvailable) {

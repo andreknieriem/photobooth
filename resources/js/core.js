@@ -17,7 +17,7 @@ const photoBooth = (function () {
             }
         };
 
-    let timeOut,
+    var timeOut,
         nextCollageNumber = 0,
         currentCollageFile = '',
         imgFilter = config.default_imagefilter;
@@ -137,7 +137,7 @@ const photoBooth = (function () {
         }
 
         loader.addClass('open');
-        public.startCountdown(nextCollageNumber ? config.collage_cntdwn_time : config.cntdwn_time, $('#counter'), () => {
+        public.startCountdown(nextCollageNumber ? config.collage_cntdwn_time : config.cntdwn_time, $('#counter'), function() {
             public.cheese(photoStyle);
         });
     }
@@ -156,7 +156,7 @@ const photoBooth = (function () {
             $('.loading').text(L10N.cheeseCollage);
         }
 
-        setTimeout(() => {
+        setTimeout(function() {
             public.takePic(photoStyle);
         }, config.cheese_time);
     }
@@ -195,11 +195,11 @@ const photoBooth = (function () {
                 $('<p>').text(`${result.current + 1} / ${result.limit}`).appendTo('.loading');
 
                 if (config.continuous_collage) {
-                    setTimeout(() => {
+                    setTimeout(function() {
                         public.thrill('collage');
                     }, 1000);
                 } else {
-                    $('<a class="btn" href="#">' + L10N.nextPhoto + '</a>').appendTo('.loading').click((ev) => {
+                    $('<a class="btn" href="#">' + L10N.nextPhoto + '</a>').appendTo('.loading').click(function(ev) {
                         ev.preventDefault();
 
                         public.thrill('collage');
@@ -239,7 +239,7 @@ const photoBooth = (function () {
 
         if (photoStyle === 'photo') {
             const preloadImage = new Image();
-            preloadImage.onload = () => {
+            preloadImage.onload = function() {
                 $('#loader').css('background-image', `url(${tempImageUrl})`);
                 $('#loader').addClass('showBackgroundImage');
             }
@@ -254,7 +254,7 @@ const photoBooth = (function () {
                 filter: imgFilter,
                 isCollage: photoStyle === 'collage',
             },
-            success: (data) => {
+            success: function(data) {
                 console.log('picture processed', data);
 
                 if (data.error) {
@@ -263,7 +263,7 @@ const photoBooth = (function () {
                     public.renderPic(data.file);
                 }
             },
-            error: (jqXHR, textStatus) => {
+            error: function(jqXHR, textStatus) {
                 console.log('An error occurred', textStatus);
 
                 public.errorPic({
@@ -291,15 +291,15 @@ const photoBooth = (function () {
             e.preventDefault();
             e.stopPropagation();
 
-            public.printImage(filename, () => {
+            public.printImage(filename, function() {
                 public.reloadPage();
             });
         });
 
-        resultPage.find('.deletebtn').off('click').on('click', (ev) => {
+        resultPage.find('.deletebtn').off('click').on('click', function(ev) {
             ev.preventDefault();
 
-            public.deleteImage(filename, (data) => {
+            public.deleteImage(filename, function(data) {
                 if (data.success) {
                     public.reloadPage();
                 } else {
@@ -314,7 +314,7 @@ const photoBooth = (function () {
         const imageUrl = config.folders.images + '/' + filename;
 
         const preloadImage = new Image();
-        preloadImage.onload = () => {
+        preloadImage.onload = function() {
             resultPage.css({
                 'background-image': `url(${imageUrl})`,
             });
@@ -340,10 +340,10 @@ const photoBooth = (function () {
     public.addImage = function (imageName) {
         const thumbImg = new Image();
         const bigImg = new Image();
-        let thumbSize = '';
-        let bigSize = '';
+        var thumbSize = '';
+        var bigSize = '';
 
-        let imgtoLoad = 2;
+        var imgtoLoad = 2;
 
         thumbImg.onload = function () {
             thumbSize = this.width + 'x' + this.height;
@@ -384,7 +384,7 @@ const photoBooth = (function () {
 
         gallery.addClass('gallery--open');
 
-        setTimeout(() => gallery.find('.gallery__inner').show(), 300);
+        setTimeout(function() { gallery.find('.gallery__inner').show();}, 300);
     }
 
     public.resetMailForm = function () {
@@ -394,8 +394,8 @@ const photoBooth = (function () {
 
     // Countdown Function
     public.startCountdown = function (start, element, cb) {
-        let count = 0;
-        let current = start;
+        var count = 0;
+        var current = start;
 
         function timerFunction() {
             element.text(current);
@@ -404,7 +404,7 @@ const photoBooth = (function () {
             element.removeClass('tick');
 
             if (count < start) {
-                window.setTimeout(() => element.addClass('tick'), 50);
+                window.setTimeout(function() { element.addClass('tick'); }, 50);
                 window.setTimeout(timerFunction, 1000);
             } else {
                 cb();
@@ -440,7 +440,7 @@ const photoBooth = (function () {
             data: {
                 file: imageName,
             },
-            success: (data) => {
+            success: function(data) {
                 cb(data);
             }
         });

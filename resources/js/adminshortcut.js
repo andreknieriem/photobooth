@@ -1,5 +1,5 @@
 /* exported adminsettings */
-let admincount = 0;
+var admincount = 0;
 
 function countreset() {
     admincount = 0;
