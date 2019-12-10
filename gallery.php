@@ -90,7 +90,7 @@ $imagelist = ($config['newest_first'] === true) ? array_reverse($images) : $imag
 			var reloadElement = $('<a>');
 			reloadElement.append('<i class="fa fa-refresh"></i>');
 			reloadElement.attr('href', '#');
-			reloadElement.on('click', function() { photoBooth.reloadPage()} );
+			reloadElement.on('click', function() { photoBooth.reloadPage(); } );
 			reloadElement.appendTo('.gallery__header');
 
 			$('.gallery__close').hide();
