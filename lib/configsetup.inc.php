@@ -486,5 +486,18 @@ $configsetup = [
 			'name' => 'print[msg]',
 			'value' => $config['print']['msg']
 		]
+	],
+	'security' => [
+		'use_privileged_access' => [
+			'type' => 'checkbox',
+			'name' => 'use_privileged_access',
+			'value' => $config['use_privileged_access']
+		],
+		'privileged_ips' => [
+			'type' => 'input',
+			'placeholder' => '',
+			'name' => 'privileged_ips[]',
+			'value' => $config['privileged_ips']
+		]
 	]
 ];

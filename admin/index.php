@@ -2,6 +2,11 @@
 
 require_once('../lib/config.php');
 require_once('../lib/configsetup.inc.php');
+
+if ($config['use_privileged_access'] === true && !in_array($_SERVER['REMOTE_ADDR'], $config['privileged_ips']) ) {
+	die(sprintf("%s is not allowed to access this page", $_SERVER['REMOTE_ADDR']));
+}
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -66,8 +71,16 @@ require_once('../lib/configsetup.inc.php');
 							echo '<div class="form-row">';
 							switch($field['type']) {
 								case 'input':
-									echo '<label data-l10n="'.$panel.'_'.$key.'">'.$panel.'_'.$key.'</label><input type="text" name="'.$field['name'].'" value="'.$field[
-										'value'].'" placeholder="'.$field['placeholder'].'"/>';
+									echo '<label data-l10n="'.$panel.'_'.$key.'">'.$panel.'_'.$key.'</label>';
+									
+									if (is_array($field['value']) && !empty($field['value'])) {
+										foreach($field['value'] as $input_key => $input_value) {
+											echo '<input type="text" name="' . $field['name'] . '" value="'  .$input_value . '" placeholder="' . $field['placeholder'] . '"/>';
+										}
+									}
+									else {
+										echo '<input type="text" name="'.$field['name'].'" value="'.$field['value'].'" placeholder="'.$field['placeholder'].'"/>';
+									}
 								break;
 								case 'checkbox':
 									$checked = '';
