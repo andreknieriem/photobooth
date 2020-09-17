@@ -184,7 +184,7 @@ then
     git clone https://github.com/andreknieriem/photobooth $INSTALLFOLDER
     cd $INSTALLFOLDERPATH
     LATEST_VERSION=$( git describe --tags `git rev-list --tags --max-count=1` )
-    info "### We ar installing version $LATEST_VERSION".
+    info "### We are installing version $LATEST_VERSION".
     git checkout $LATEST_VERSION
     git submodule update --init
 
