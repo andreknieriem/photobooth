@@ -12,8 +12,7 @@ $configsetup = [
 				'en' => 'EN',
 				'es' => 'ES',
 				'fr' => 'FR',
-				'gr' => 'GR',
-				'hu' => 'HU'
+				'gr' => 'GR'
 			],
 			'value' => $config['language']
 		],
@@ -33,11 +32,6 @@ $configsetup = [
 			'type' => 'checkbox',
 			'name' => 'dev',
 			'value' => $config['dev']
-		],
-		'keep_images' => [
-			'type' => 'checkbox',
-			'name' => 'keep_images',
-			'value' => $config['keep_images']
 		],
 		'show_error_messages' => [
 			'type' => 'checkbox',
@@ -86,6 +80,16 @@ $configsetup = [
 			'name' => 'collage_key',
 			'placeholder' => '',
 			'value' => $config['collage_key']
+		],
+		'collage_layout' => [
+			'type' => 'select',
+			'name' => 'collage_layout',
+			'placeholder' => $defaultConfig['collage_layout'],
+			'options' => [
+				'2x2' => '2x2'
+				'2x4' => '2x4'
+			],
+			'value' => $config['collage_layout']
 		],
 		'collage_limit' => [
 			'type' => 'hidden',
@@ -206,11 +210,6 @@ $configsetup = [
 				'environment' => 'Back facing camera'
 			],
 			'value' => $config['camera_mode']
-		],
-		'allow_delete' => [
-			'type' => 'checkbox',
-			'name' => 'allow_delete',
-			'value' => $config['allow_delete']
 		]
 	],
 	'jpeg_quality' => [
