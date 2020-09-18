@@ -28,9 +28,11 @@ $config['file_format_date'] = false;
 $config['cntdwn_time'] = '5'; // control countdown timer
 $config['collage_cntdwn_time'] = '3'; // control countdown timer between collage pictures
 $config['cheese_time'] = '1000'; // control time for cheeeeese!
+$config['keep_images'] = true;
 $config['use_filter'] = true;
 $config['default_imagefilter'] = 'plain';
 $config['disabled_filters'] = array();
+$config['allow_delete'] = true;
 $config['polaroid_effect'] = false;
 $config['polaroid_rotation'] = '0';
 $config['take_frame'] = false;
@@ -52,7 +54,7 @@ $config['collage_key'] = null;
 $config['collage_layout'] = '2x2'; //possible layouts are 2x2 or 2x4 (row x column)
 
 // LANGUAGE
-// possible values: de, en, es, fr, gr
+// possible values: de, en, es, fr, gr, hu
 $config['language'] = 'en';
 
 // StartScreen
