@@ -12,7 +12,8 @@ $configsetup = [
 				'en' => 'EN',
 				'es' => 'ES',
 				'fr' => 'FR',
-				'gr' => 'GR'
+				'gr' => 'GR',
+				'hu' => 'HU'
 			],
 			'value' => $config['language']
 		],
@@ -32,6 +33,11 @@ $configsetup = [
 			'type' => 'checkbox',
 			'name' => 'dev',
 			'value' => $config['dev']
+		],
+		'keep_images' => [
+			'type' => 'checkbox',
+			'name' => 'keep_images',
+			'value' => $config['keep_images']
 		],
 		'show_error_messages' => [
 			'type' => 'checkbox',
@@ -210,6 +216,11 @@ $configsetup = [
 				'environment' => 'Back facing camera'
 			],
 			'value' => $config['camera_mode']
+		],
+		'allow_delete' => [
+			'type' => 'checkbox',
+			'name' => 'allow_delete',
+			'value' => $config['allow_delete']
 		]
 	],
 	'jpeg_quality' => [
