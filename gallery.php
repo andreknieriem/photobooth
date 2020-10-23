@@ -3,6 +3,16 @@
 require_once('lib/config.php');
 require_once('lib/db.php');
 
+// Check if there is a request for the status of the database
+if (isset($_GET['status'])){
+	// Request for DB-Status,
+	// Currently reports back the DB-Size to give the Client the ability
+	// to detect changes
+	$resp = array('dbsize'=>getDBSize());
+	exit(json_encode($resp));
+
+}
+
 $images = getImagesFromDB();
 $imagelist = ($config['newest_first'] === true) ? array_reverse($images) : $images;
 ?>
@@ -88,6 +98,7 @@ $imagelist = ($config['newest_first'] === true) ? array_reverse($images) : $imag
 	<script type="text/javascript" src="resources/js/theme.js"></script>
 	<script type="text/javascript" src="resources/js/core.js"></script>
 	<script type="text/javascript" src="resources/lang/<?php echo $config['language']; ?>.js"></script>
+	<script type="text/javascript" src="resources/js/gallery_updatecheck.js"></script>
 	<script>
 		$(function() {
 			let reloadElement = $('<a class="gallery__reload">');
