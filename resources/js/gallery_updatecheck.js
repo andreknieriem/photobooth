@@ -15,7 +15,7 @@ improvement, but would need further changes in gallery-templates
 */
 
 var lastDBSize=-1;		 //Size of the DB - is used to determine changes
-var interval = 1000 * 5; // Interval, the pages is checked (/ms)
+var interval = 1000 * 5; // Interval, the page is checked (/ms)
 var ajaxurl="gallery.php/?status"; //URL to request for changes
 
 /*
@@ -29,8 +29,9 @@ function dbUpdated(){
 
 
 var checkForUpdates = function() {
-  $.getJSON({url: ajaxurl, success: 
-	  
+	if(photoBooth.isTimeOutPending())
+		return;	//If there is user interaction, do not check for updates
+	$.getJSON({url: ajaxurl, success:
 	  function(result){
 		var currentDBSize=result['dbsize'];
 		if(lastDBSize!=currentDBSize && lastDBSize !=-1){
