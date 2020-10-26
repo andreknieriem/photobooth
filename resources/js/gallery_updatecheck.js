@@ -16,7 +16,7 @@ improvement, but would need further changes in gallery-templates
 
 var lastDBSize=-1;		 //Size of the DB - is used to determine changes
 var interval = 1000 * 5; // Interval, the page is checked (/ms)
-var ajaxurl="gallery.php/?status"; //URL to request for changes
+var ajaxurl="gallery.php?status"; //URL to request for changes
 
 /*
 This function will be called if there are new pictures
