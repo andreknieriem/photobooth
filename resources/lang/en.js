@@ -122,6 +122,8 @@ const L10N = {
     'polaroid_effect': 'Polaroid effect',
     'general_polaroid_rotation': 'Polaroid picture rotation',
     'use_collage': 'Allow photo collage',
+    'take_collage_frame': 'Take collage with frame',
+    'take_collage_frame_path': 'Frame',
     'take_frame': 'Take picture with frame',
     'general_take_frame_path': 'Frame',
     'print_frame': 'Print frame on picture',
