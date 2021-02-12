@@ -157,6 +157,12 @@ function initPhotoSwipeFromDOM (gallerySelector) {
             let img = gallery.currItem.src;
             img = img.split('/').pop();
 
+            $('<button>').addClass('pswp__button pswp__button--close').prop('title', 'Close QR Code').on('click touchstart', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+        
+                $('.pswp__qr').empty().removeClass('qr-active').fadeOut('fast');
+            }).append( $('<i>').addClass('fa fa-times') ).appendTo(pswpQR);
             $('<img>').attr('src', 'api/qrcode.php?filename=' + img).appendTo(pswpQR);
 
             pswpQR.addClass('qr-active').fadeIn('fast');
