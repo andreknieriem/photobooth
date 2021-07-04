@@ -238,7 +238,7 @@ const photoBooth = (function () {
                         public.thrill('collage');
                     }, 1000);
                 } else {
-                    $('<a class="btn" href="#">' + L10N.nextPhoto + '</a>').appendTo('.loading').click((ev) => {
+                    $('<a class="btn btn--flex" href="#">' + L10N.nextPhoto + '</a>').appendTo('.loading').click((ev) => {
                         ev.preventDefault();
 
                         public.thrill('collage');
