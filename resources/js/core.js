@@ -554,6 +554,7 @@ const photoBooth = (function () {
 
         gallery.find('.gallery__inner').hide();
         gallery.removeClass('gallery--open');
+        $('.resultInner').toggleClass('show');
     });
 
     $('.mailbtn').on('click touchstart', function (e) {

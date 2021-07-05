@@ -94,3 +94,4 @@ Please take a look at the changelog in our [Photobooth Wiki](https://github.com/
 - [msmedien](https://github.com/msmedien)
 - [sualko](https://github.com/sualko)
 - [rawbertp](https://github.com/rawbertp)
+- [mhellmeier](https://github.com/mhellmeier)
