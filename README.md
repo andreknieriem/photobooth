@@ -1,3 +1,10 @@
+## !!!
+## PROJECT CONTINUED AT [https://github.com/PhotoboothProject/photobooth](https://github.com/PhotoboothProject/photobooth)
+## MORE INFORMATION: [https://photoboothproject.github.io/](https://photoboothproject.github.io/)
+## !!!
+
+---
+
 # Photobooth by Andre Rinas
 
 A Photobooth web interface for Raspberry Pi and Windows.
