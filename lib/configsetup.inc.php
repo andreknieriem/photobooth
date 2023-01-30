@@ -87,6 +87,16 @@ $configsetup = [
 			'placeholder' => '',
 			'value' => $config['collage_key']
 		],
+		'collage_layout' => [
+			'type' => 'select',
+			'name' => 'collage_layout',
+			'placeholder' => $defaultConfig['collage_layout'],
+			'options' => [
+				'2x2' => '2x2'
+				'2x4' => '2x4'
+			],
+			'value' => $config['collage_layout']
+		],
 		'collage_limit' => [
 			'type' => 'hidden',
 			'name' => 'collage_limit',

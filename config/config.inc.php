@@ -51,6 +51,7 @@ $config['rounded_corners'] = false;
 // use for example https://keycode.info to get the key code
 $config['photo_key'] = null;
 $config['collage_key'] = null;
+$config['collage_layout'] = '2x2'; //possible layouts are 2x2 or 2x4 (row x column)
 
 // LANGUAGE
 // possible values: de, en, es, fr, gr, hu
