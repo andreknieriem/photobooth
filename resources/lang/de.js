@@ -122,6 +122,8 @@ const L10N = {
     'polaroid_effect': 'Polaroid Effekt',
     'general_polaroid_rotation': 'Polaroid Bild-Rotation',
     'use_collage': 'Foto-Collage erlauben',
+    'take_collage_frame': 'Foto-Collage mit Rahmen aufnehmen',
+    'take_collage_frame_path': 'Rahmen',
     'take_frame': 'Bild mit Rahmen aufnehmen',
     'general_take_frame_path': 'Rahmen',
     'print_frame': 'Rahmen auf Bild drucken',
